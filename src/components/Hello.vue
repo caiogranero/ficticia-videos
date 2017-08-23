@@ -1,12 +1,14 @@
 <template>
   <div class="hello">
     <header-component></header-component>
+    <videos-list></videos-list>
   </div>
 </template>
 
 <script>
 
 import HeaderComponent from '@/components/header/Header'
+import VideosList from '@/components/videos/VideosList'
 
 export default {
   name: 'hello',
@@ -15,13 +17,9 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
-  created () {
-    this.$YoutubeService.get({q: 'EACH-USP'}).then(res => {
-      console.log(res)
-    })
-  },
   components: {
-    HeaderComponent
+    HeaderComponent,
+    VideosList
   }
 }
 </script>
