@@ -1,32 +1,121 @@
 <template>
+  <div id="video-list">
+    <md-layout class="outside-space">
+      <md-layout md-flex="70">
+        <h3 class="page-title">
+          Todos os vídeos do Canal
+        </h3>
+      </md-layout>
+      <md-layout md-flex="70">
+        <md-layout class="md-videos-custom" md-flex-xsmall="100" md-flex-small="100" md-flex-medium="60" md-flex-large="33" v-for="video in videos" :key="video.id">
+          <md-card class="md-card-custom">
+            <md-card-header>
+              <md-card-media md-big>
+                <img :src="video.thumbnails" alt="People">
+              </md-card-media>
 
-  <!-- <div data-v-2246501d="" class="><div data-v-2246501d="" class="md-card md-theme-default"><div data-v-2246501d="" class="md-card-header md-card-header-flex"><div data-v-2246501d="" class="md-card-media md-custom-big md-big"><img data-v-2246501d="" src="https://i.ytimg.com/vi/R5HlB3fEV2o/mqdefault.jpg"></div> <div data-v-2246501d="" class="video-info"><div data-v-2246501d="" class="md-card-header-text"><div data-v-2246501d="" class="md-title-videos"><p data-v-2246501d="">Sonic Funeral</p></div> <div data-v-2246501d="" class="md-views-videos"><i data-v-2246501d="" aria-hidden="true" class="md-icon md-size-1x icon-pointer md-theme-default material-icons">remove_red_eye</i> 100 views</div></div></div></div></div></div><div data-v-2246501d="" class="md-layout md-videos-custom md-flex-xsmall-100 md-flex-small-100 md-flex-medium-60 md-flex-large-33"><div data-v-2246501d="" class="md-card md-theme-default"><div data-v-2246501d="" class="md-card-header md-card-header-flex"><div data-v-2246501d="" class="md-card-media md-custom-big md-big"><img data-v-2246501d="" src="https://i.ytimg.com/vi/Rh9ytBuHnck/mqdefault.jpg"></div> <div data-v-2246501d="" class="video-info"><div data-v-2246501d="" class="md-card-header-text"><div data-v-2246501d="" class="md-title-videos"><p data-v-2246501d="">Super Mario vs Sonic the Hedgeho...</p></div> <div data-v-2246501d="" class="md-views-videos"><i data-v-2246501d="" aria-hidden="true" class="md-icon md-size-1x icon-pointer md-theme-default material-icons">remove_red_eye</i> 100 views</div></div></div></div></div></div><div data-v-2246501d="" class="md-layout md-videos-custom md-flex-xsmall-100 md-flex-small-100 md-flex-medium-60 md-flex-large-33"><div data-v-2246501d="" class="md-card md-theme-default"><div data-v-2246501d="" class="md-card-header md-card-header-flex"><div data-v-2246501d="" class="md-card-media md-custom-big md-big"><img data-v-2246501d="" src="https://i.ytimg.com/vi/ltbR9zj0Tuc/mqdefault.jpg"></div> <div data-v-2246501d="" class="video-info"><div data-v-2246501d="" class="md-card-header-text"><div data-v-2246501d="" class="md-title-videos"><p data-v-2246501d="">EVOLUTION OF SONIC THE HEDGEHOG ...</p></div> <div data-v-2246501d="" class="md-views-videos"><i data-v-2246501d="" aria-hidden="true" class="md-icon md-size-1x icon-pointer md-theme-default material-icons">remove_red_eye</i> 100 views</div></div></div></div></div></div><div data-v-2246501d="" class="md-layout md-videos-custom md-flex-xsmall-100 md-flex-small-100 md-flex-medium-60 md-flex-large-33"><div data-v-2246501d="" class="md-card md-theme-default"><div data-v-2246501d="" class="md-card-header md-card-header-flex"><div data-v-2246501d="" class="md-card-media md-custom-big md-big"><img data-v-2246501d="" src="https://i.ytimg.com/vi/FHMzaqJBVYg/mqdefault.jpg"></div> <div data-v-2246501d="" class="video-info"><div data-v-2246501d="" class="md-card-header-text"><div data-v-2246501d="" class="md-title-videos"><p data-v-2246501d="">Sonic and the Black Knight All C...</p></div> <div data-v-2246501d="" class="md-views-videos"><i data-v-2246501d="" aria-hidden="true" class="md-icon md-size-1x icon-pointer md-theme-default material-icons">remove_red_eye</i> 100 views</div></div></div></div></div></div><div data-v-2246501d="" class="md-layout md-videos-custom md-flex-xsmall-100 md-flex-small-100 md-flex-medium-60 md-flex-large-33"><div data-v-2246501d="" class="md-card md-theme-default"><div data-v-2246501d="" class="md-card-header md-card-header-flex"><div data-v-2246501d="" class="md-card-media md-custom-big md-big"><img data-v-2246501d="" src="https://i.ytimg.com/vi/6KhFYLrfFg8/mqdefault.jpg"></div> <div data-v-2246501d="" class="video-info"><div data-v-2246501d="" class="md-card-header-text"><div data-v-2246501d="" class="md-title-videos"><p data-v-2246501d="">DOES THIS GAME MARK THE END OF T...</p></div> <div data-v-2246501d="" class="md-views-videos"><i data-v-2246501d="" aria-hidden="true" class="md-icon md-size-1x icon-pointer md-theme-default material-icons">remove_red_eye</i> 100 views</div></div></div></div></div></div></div></div> -->
-  <md-layout class="outside-space">
-    <md-layout md-flex="70">
-      <h1>
-        <md-icon class="md-size-2x">play_circle_outline</md-icon>
-        Fictícia videos
-      </h1>
+              <div class="video-info">
+                <md-card-header-text>
+                  <div class="md-title-videos">{{video.title}}</div>
+                  <div class="md-views-videos"><md-icon class="md-size-1x">remove_red_eye</md-icon> {{video.views}} views</div>
+                </md-card-header-text>
+              </div>
+            </md-card-header>
+          </md-card>
+        </md-layout>
+      </md-layout>
     </md-layout>
-    <md-layout class="md-videos-custom" md-flex-xsmall="100" md-flex-small="100" md-flex-medium="60" md-flex-large="33">
 
+    <md-layout md-align="center" md-gutter="16">
+      <md-layout md-flex="35">
+        <span>center</span>
+      </md-layout>
+
+      <md-layout md-flex="35">
+        <span>center</span>
+      </md-layout>
     </md-layout>
-  </md-layout> 
+      <md-layout md-flex="100">
+        <md-button class="md-raised md-primary">Default</md-button>
+        <spinner v-show="isLoading"></spinner>
+      </md-layout>
+  </div>
 </template>
 
 <script>
+import Spinner from '@/components/Spinner'
+
 export default {
   name: 'Header',
   data () {
-    
+    return {
+      videos: [],
+      isLoading: false
+    }
+  },
+  components: {Spinner},
+  created () {
+    this.$YoutubeService.get({q: 'EACH-USP'}).then(res => {
+      console.log(res.data.items)
+      res.data.items.forEach((el) => {
+        this.videos.push({
+          title: this.maxTitleSize(el.snippet.title),
+          views: 100,
+          thumbnails: el.snippet.thumbnails.medium.url,
+          id: el.id.videoId
+        })
+      })
+    })
   },
   methods: {
-    
+    maxTitleSize (title) {
+      if (title.length > 32) {
+        return title.substring(0, 32) + '...'
+      } else {
+        return title
+      }
+    }
   }
 }
 </script>
 
 <style scoped>
+.md-card-custom {
+  box-shadow: none;
+}
 
+.video-info {
+  margin-left: 10px;
+  position: relative;
+}
 
+.md-title-videos {
+  color: #B0135A;
+}
+
+.page-title {
+  color: #B0135A;
+  font-size: 35px;
+  font-weight: 300;
+}
+
+.md-card .md-card-header .md-card-media.md-big {
+  flex: 0 0 180px;
+  height: 100px;
+}
+
+.md-views-videos {
+  position: absolute;
+  bottom: 0;
+  color: #C8C8C8;
+}
+
+.md-videos-custom {
+  opacity: 0.7;
+}
+
+.md-videos-custom:hover {
+  opacity: 1;
+  cursor: pointer;
+}
 </style>
