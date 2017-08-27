@@ -1,20 +1,20 @@
 <template>
   <div id="app">
+    <header-component></header-component>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import HeaderComponent from '@/components/header/Header'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: { HeaderComponent }
 }
 </script>
 
 <style>
-.outside-space {
-   justify-content: center; 
-}
-
 .icon-pointer {
   cursor: pointer;
 }

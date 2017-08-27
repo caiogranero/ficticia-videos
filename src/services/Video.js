@@ -9,13 +9,14 @@ const API_KEY = 'AIzaSyCj_XvlLY9SS0O5Zcut64K-PG6bcernguM'
 
 export default {
   install (Vue) {
-    const YoutubeService = {
-      name: 'YoutubeService',
+    const VideoService = {
+      name: 'VideoService',
 
       get (params = {}) {
         const defaultParams = {
           key: API_KEY,
-          part: 'snippet'
+          part: 'snippet',
+          type: 'video'
         }
 
         params = Object.assign(params, defaultParams)
@@ -24,7 +25,7 @@ export default {
       }
     }
 
-    Vue.$YoutubeService = YoutubeService
-    Vue.prototype.$YoutubeService = YoutubeService
+    Vue.$VideoService = VideoService
+    Vue.prototype.$VideoService = VideoService
   }
 }

@@ -1,5 +1,5 @@
-import Youtube from './Youtube'
+import Video from './Video'
 
 export default {
-  Youtube
+  Video
 }

@@ -5,10 +5,12 @@ import App from './App'
 import router from './router'
 import store from './store'
 import VueMaterial from 'vue-material'
+import Tooltip from 'vue-directive-tooltip'
 import 'vue-material/dist/vue-material.css'
+import 'vue-directive-tooltip/css/index.css'
 
 Vue.config.productionTip = false
-
+Vue.use(Tooltip)
 Vue.use(VueMaterial)
 
 import AppServices from './services'
