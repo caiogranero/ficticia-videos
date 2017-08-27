@@ -1,30 +1,33 @@
-# ficticia-videos
+# Victicia-videos
 
-> A vue.js project, build to play youtube videos
+## Testes de aceitação (Cucumber)
 
-## Build Setup
+### Como rodar
 
-``` bash
-# install dependencies
-npm install
+1. Instalando ruby
 
-# serve with hot reload at localhost:8080
-npm run dev
+    ``` 
+    $ sudo apt-get install ruby-full
+    $ sudo apt-get install build-essential patch
+    $ sudo apt-get install ruby-dev zlib1g-dev liblzma-dev 
+    ```
+    
+2. Download [Selenium Drive][1]
+3. Instalando cucumber: 
 
-# build for production with minification
-npm run build
+	``` 
+	$ gem install cucumber 
+	```
 
-# build for production and view the bundle analyzer report
-npm run build --report
+4. Instalando bundle: 
+	``` 
+	$ gem install bundler 
+	```
 
-# run unit tests
-npm run unit
+5. Finalmente, vá ao diretório deste projeto e execute
+	```
+	$ cucumber 
+	```
 
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+[1]: http://www.seleniumhq.org/download/
+  

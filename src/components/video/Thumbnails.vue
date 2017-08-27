@@ -46,6 +46,7 @@ export default {
 .video-info
   margin-left: 10px
   position: relative
+  width: 100%
 
 .md-title-videos
   color: #B0135A

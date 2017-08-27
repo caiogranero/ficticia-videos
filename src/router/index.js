@@ -5,17 +5,30 @@ import Featured from '@/components/pages/Featured'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Destaque',
-      component: Featured
+      name: 'Vídeos em destaque',
+      component: Featured,
+      meta: {
+        title: 'Vídeos em destaque'
+      }
     },
     {
       path: '/busca',
-      name: 'Busca',
-      component: VideoList
+      name: 'Busca de vídeos',
+      component: VideoList,
+      meta: {
+        title: 'Busca de vídeos'
+      }
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
+})
+
+export default router

@@ -4,18 +4,18 @@
     <md-layout md-flex="40" md-align="start">
       <h1>
         <img src="../../assets/youtube.svg" width="40" height="224" alt="Youtube free icon" title="Youtube free icon">
-        Fictícia videos
+        <md-layout id="title" md-hide-large>Fictícia videos</md-layout>
       </h1>
     </md-layout>
     <md-layout md-flex="15" md-align="end">
     </md-layout>
     <md-layout md-flex="5" md-align="end">
       <input type="text" id="search-input" v-if="showSearch"  @keyup="initKeyTimer()" v-model="qSearch">
-      <md-button class="md-icon-button" @click="displaySearchInput"> 
+      <md-button class="md-icon-button" id="btn-search" @click="displaySearchInput"> 
          <md-icon class="md-size-1x icon-pointer">search</md-icon> 
       </md-button>
     </md-layout>
-    <md-layout md-flex="5" md-align="end">
+    <md-layout md-flex-xsmall="20" md-flex-small="30" md-flex-medium="15" md-flex-large="5" md-align="end">
       <h3>Menu</h3>
       <md-icon v-tooltip.click="{ 
         html: 'tooltipContent',
@@ -24,11 +24,11 @@
 
       <div id="tooltipContent">
         <md-list>
-          <md-list-item href="" @click="$router.push({name: 'Destaque'})">
+          <md-list-item href="" @click="$router.push({name: 'Vídeos em destaque'})">
             <md-icon>star_border</md-icon> 
             Destaques
           </md-list-item>
-          <md-list-item href="" @click="$router.push({name: 'Busca'})">
+          <md-list-item href="" @click="$router.push({name: 'Busca de vídeos'})">
             <md-icon>play_circle_outline</md-icon> 
             Vídeos
           </md-list-item>
@@ -62,8 +62,8 @@ export default {
       }
       this.keyTimer = setTimeout(() => {
         this.$store.commit('setQuery', this.qSearch)
-        if (this.$route.name !== 'Busca') {
-          this.$router.push({name: 'Busca'})
+        if (this.$route.name !== 'Busca de vídeos') {
+          this.$router.push({name: 'Busca de vídeos'})
         }
       }, 600)
     }
@@ -121,4 +121,8 @@ export default {
   border: 1px solid white
   border-radius: 4px
   outline: white
+
+@media (min-width: 1264px)
+  #title
+    display: inline
 </style>
