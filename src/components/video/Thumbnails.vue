@@ -25,6 +25,8 @@ export default {
     fnAction: Function
   },
   methods: {
+    // Control the max size of the title,
+    // if is bigger then 28 character, insert a ... in title
     maxTitleSize (title) {
       if (title.length > 28) {
         return title.substring(0, 25) + '...'

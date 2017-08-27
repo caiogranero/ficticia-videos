@@ -3,18 +3,15 @@
     <md-layout md-flex="15"></md-layout>
     <md-layout md-flex="40" md-align="start">
       <h1>
-        <md-icon class="md-size-2x">play_circle_outline</md-icon>
+        <img src="../../assets/youtube.svg" width="40" height="224" alt="Youtube free icon" title="Youtube free icon">
         Fictícia videos
       </h1>
     </md-layout>
     <md-layout md-flex="15" md-align="end">
-      <md-input-container v-if="showSearch">
-        <label>Pesquisar</label>
-        <md-input v-model="qSearch"></md-input>
-      </md-input-container>
     </md-layout>
     <md-layout md-flex="5" md-align="end">
-       <md-button class="md-icon-button" @click="showSearchInput"> 
+      <input type="text" id="search-input" v-if="showSearch"  @keyup="initKeyTimer()" v-model="qSearch">
+      <md-button class="md-icon-button" @click="displaySearchInput"> 
          <md-icon class="md-size-1x icon-pointer">search</md-icon> 
       </md-button>
     </md-layout>
@@ -48,12 +45,27 @@ export default {
   data () {
     return {
       qSearch: '',
-      showSearch: false
+      showSearch: false,
+      keyTimer: null
     }
   },
   methods: {
-    showSearchInput () {
-      this.showSearch = true
+    // Control the input display
+    displaySearchInput () {
+      this.showSearch = !this.showSearch
+    },
+
+    // Timeout to check automatic when the user type a query
+    initKeyTimer () {
+      if (this.keyTimer) {
+        clearTimeout(this.keyTimer)
+      }
+      this.keyTimer = setTimeout(() => {
+        this.$store.commit('setQuery', this.qSearch)
+        if (this.$route.name !== 'Busca') {
+          this.$router.push({name: 'Busca'})
+        }
+      }, 600)
     }
   }
 }
@@ -83,4 +95,30 @@ export default {
   .md-list-item 
     .md-list-item-container
       justify-content: flex-start
+
+.vue-tooltip
+  background-color: white
+
+#search-input
+  position: absolute
+  border: 1px solid white
+  border-radius: 4px
+  padding-top: 15px
+  background: rgba(0,0,0,0.1)
+  text-align: start
+  font-family: inherit
+  color: white
+  font-style: inherit
+  letter-spacing: inherit
+  line-height: 16px
+  margin: 0px -10px
+  padding: 10px 16px
+  text-align: start
+  width: 250px
+  font-variant: inherit
+
+#search-input:focus
+  border: 1px solid white
+  border-radius: 4px
+  outline: white
 </style>

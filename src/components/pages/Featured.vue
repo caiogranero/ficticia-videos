@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Thumbnails from '@/components/search/Thumbnails'
+import Thumbnails from '@/components/video/Thumbnails'
 import VideoFrame from '@/components/video/VideoFrame'
 import VideoDescription from '@/components/video/VideoDescription'
 import ButtonSearch from '@/components/helpers/ButtonSearch'
@@ -54,25 +54,34 @@ export default {
   },
   components: { Thumbnails, VideoFrame, VideoDescription, ButtonSearch },
   created () {
-    let featuredParams = {
-      order: 'rating',
-      maxResults: '1'
-    }
-    this.getFeaturedVideo(featuredParams)
+    this.getFeaturedVideo()
   },
   methods: {
+    // Load the feature video.
+    // This video is select by order the youtube content per rating
     getFeaturedVideo (params = {}) {
-      this.$VideoService.get(params).then(res => {
+      let featuredParams = {
+        order: 'rating',
+        maxResults: '1'
+      }
+
+      featuredParams = Object.assign(featuredParams, params)
+
+      this.$VideoService.get(featuredParams).then(res => {
         this.featuredVideo = res.data.items[0]
+        // When get the featured video, search for related content
         this.getRelatedVideos()
       })
     },
+
+    // Load related videos
     getRelatedVideos () {
       let relatedParams = {
         relatedToVideoId: this.featuredVideo.id.videoId,
         maxResults: 4
       }
 
+      // Necessary when click the load more button
       if (this.nextPageToken) {
         relatedParams['pageToken'] = this.nextPageToken
       }
@@ -80,10 +89,12 @@ export default {
       this.$VideoService.get(relatedParams).then(res => {
         this.nextPageToken = res.data.nextPageToken
         res.data.items.forEach((el, idx) => {
+          // Insert in video array a view value
           this.relatedVideos.push(Object.assign(el, {views: this.generateRandomViews()}))
         })
       })
     },
+    // When select a related video, change the principal video
     changeFeatured (video) {
       this.featuredVideo = video
     }

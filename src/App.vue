@@ -10,12 +10,33 @@ import HeaderComponent from '@/components/header/Header'
 
 export default {
   name: 'app',
-  components: { HeaderComponent }
+  components: { HeaderComponent },
+  watch: {
+    '$route' (to, from) {
+      if (from.name === 'Busca') {
+        this.$store.commit('setQuery', '')
+      }
+    }
+  }
 }
 </script>
 
-<style>
-.icon-pointer {
-  cursor: pointer;
-}
+<style lang="sass">
+.icon-pointer
+  cursor: pointer
+
+#app
+  margin-bottom: 20px
+
+.vue-tooltip
+  &.custom-white
+    z-index: 999
+    background-color: white
+    color: black
+    background-color:white
+    
+    .tooltip-arrow
+      border-color: white
+      color: black
+      background-color:white
 </style>

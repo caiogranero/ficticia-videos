@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import VideoList from '@/components/search/VideosList'
-import Featured from '@/components/featured/Featured'
+import VideoList from '@/components/pages/Videos'
+import Featured from '@/components/pages/Featured'
 
 Vue.use(Router)
 

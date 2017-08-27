@@ -80,14 +80,4 @@ export default {
 .detail-action-icon
   color: #7AC6DE
 
-.vue-tooltip
-  &.custom-white
-    z-index: 999
-    background-color: white
-    color: black
-    
-    .tooltip-arrow
-      border-color: white
-      color: black
-
 </style>

@@ -1,8 +1,7 @@
 const mutations = {
-  /* setUser (state, user) {
-    state.user = user
-    state.userLogged = true
-  } */
+  setQuery (state, query) {
+    state.query = query
+  }
 }
 
 export default mutations
