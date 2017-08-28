@@ -1,5 +1,21 @@
 # Victicia-videos
 
+## Executando
+```bash
+# Instalando as dependências
+npm install
+
+# Executando no modo desenvolvimento
+npm run dev
+
+# Executando para produção
+npm run build
+
+# Executando para produção e visualizar reporte 
+npm run build --report
+
+```
+
 ## Testes de aceitação (Cucumber)
 
 ### Como rodar
@@ -13,21 +29,27 @@
     ```
     
 2. Download [Selenium Drive][1]
-3. Instalando cucumber: 
+3. Necessário adicionar no PATH a pasta que contém o Selenium drive
+4. Acessando a pasta dos testes de aceitação
+	```
+	$ cd ficticia-video/test/cucumber
+	
+	```
+4. Instalando cucumber: 
 
 	``` 
 	$ gem install cucumber 
 	```
 
-4. Instalando bundle: 
+5. Instalando bundle: 
 	``` 
 	$ gem install bundler 
 	```
 
-5. Finalmente, vá ao diretório deste projeto e execute
+6. Finalmente, vá ao diretório deste projeto e execute
 	```
-	$ cucumber 
-	```
+	$ cucumber browser=chrome
+	``` 
 
 [1]: http://www.seleniumhq.org/download/
   

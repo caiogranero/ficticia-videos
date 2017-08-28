@@ -2,8 +2,8 @@
   <div id="featured">
     <md-layout v-if="featuredVideo">
 
-      <md-layout md-flex-xsmall="10" md-flex-small="20" md-flex-medium="20" md-flex-large="15"></md-layout>
-      <md-layout md-flex-xsmall="75" md-flex-small="75" md-flex-medium="75" md-flex-large="40" class="top-content">
+      <md-layout md-flex-xsmall="10" md-flex-small="20" md-flex-medium="20" md-flex-large="15" md-flex-xlarge="25"></md-layout>
+      <md-layout md-flex-xsmall="75" md-flex-small="75" md-flex-medium="75" md-flex-large="40" md-flex-xlarge="30" class="top-content">
         <h3 class="featured-title">Vídeo em destaque</h3>
         <md-layout md-flex="100">
           <video-frame :videoId="featuredVideo.id.videoId"></video-frame>
@@ -17,7 +17,7 @@
       <md-layout md-flex-xsmall="15" md-flex-small="5" md-flex-medium="5" md-hide-large-and-up></md-layout>
 
       <md-layout md-flex-xsmall="10" md-flex-small="20" md-flex-medium="20" md-hide-large-and-up></md-layout>
-      <md-layout md-flex-xsmall="75" md-flex-small="75" md-flex-medium="75" md-flex-large="30" class="top-content">
+      <md-layout md-flex-xsmall="75" md-flex-small="75" md-flex-medium="75" md-flex-large="30" md-flex-xlarge="20" class="top-content">
         <h3 class="featured-title">+ Vídeos </h3>
         <md-card>
           <div v-if="relatedVideos.length > 0">
