@@ -3,7 +3,7 @@
     <md-layout md-flex="15"></md-layout>
     <md-layout md-flex="40" md-align="start">
       <h1>
-        <img src="../../assets/youtube.svg" width="40" height="224" alt="Youtube free icon" title="Youtube free icon">
+        <img src="../../assets/youtube.svg" class="icon-pointer" width="40" height="224" @click="$router.push({name: 'Vídeos em destaque'})">
         <md-layout id="title" md-hide-large>Fictícia videos</md-layout>
       </h1>
     </md-layout>

@@ -60,10 +60,10 @@ export default {
   },
   methods: {
     // Load the feature video.
-    // This video is select by order the youtube content per rating
+    // This video is select by order the youtube content per viewCount
     getFeaturedVideo (params = {}) {
       let featuredParams = {
-        order: 'rating',
+        order: 'viewCount',
         maxResults: '1'
       }
 
