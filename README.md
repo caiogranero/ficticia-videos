@@ -1,5 +1,7 @@
 # Victicia-videos
 
+Projeto desenvolvido com Vue.js, Webpack, cucumber, capybara e Youtube API
+
 ## Executando
 ```bash
 # Instalando as dependências
